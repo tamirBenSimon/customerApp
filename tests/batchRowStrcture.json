@@ -1,0 +1,58 @@
+{
+    "BatchRequest": {
+        "BatchHeader": {
+            "Username": "test",
+            "Password": "test",
+            "CustomerBatchId": "test_test_test_test_test_test_50",
+            "CreationTimeStamp": "26/03/2021 16:42",
+            "OrdersQuantity": 2,
+            "ShipTime": "16:42",
+            "ShipDate": "26/03/2021",
+            "Currency": "USD",
+            "Payments": {
+                "FreightPaymentType": "Sender",
+                "DutiesPaymentType": "Sender"
+            },
+            "Labels": [
+                {
+                    "LabelFormat": "ZPL"
+                },
+                {
+                    "LabelFormat": "TIF"
+                }
+            ]
+        }
+    },
+    "BatchOrders": [
+        {
+          "OrderNumber": "2757573",
+          "ServiceType": "FIRST CLASS",
+          "PackageType": "FEDEX_ENVELOPE",
+          "Urgent": false,
+          "Purchase_Platform": "walmart",
+          "ShipTo": {
+            "ShipToFullName": "Rosalynn Berardesca",
+            "ShipToAddress1": "4101 SW 27th Avenue",
+            "ShipToAddress2": "",
+            "ShipToCity": "Cape Coral",
+            "ShipToState": "FL",
+            "ShipToCountry": "US",
+            "ShipToZip5": "33914"
+          },
+          "WeightMeasure": "Gram",
+          "OrderShipDate": "23-03-2021",
+          "Amazon_Ship_Date": "18-03-2021",
+          "ParcelWeight": "198",
+          "LineItems": [
+            {
+              "Quantity": "1",
+              "Value": "7.97",
+              "WeightOz": "6.99",
+              "Description": "T-Shirt",
+              "SkuId": "9765",
+              "Size": "XXL"
+            }
+          ]
+        }
+      ]
+}

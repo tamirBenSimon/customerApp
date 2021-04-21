@@ -1,0 +1,64 @@
+{
+  "BatchRequest": {
+    "BatchHeader": {
+      "Username": "test",
+      "Password": "test",
+      "CustomerBatchId": "t101",
+      "CreationTimeStamp": "26/03/2021 16: 42",
+      "OrdersQuantity": 2,
+      "ShipTime": "1642",
+      "ShipDate": "26/03/2021",
+      "Payments": {
+        "FreightPaymentType": "Sender",
+        "DutiesPaymentType": "Sender"
+      },
+      "Labels": [{ "LabelFormat": "ZPL" }, { "LabelFormat": "TIF" }]
+    }
+  },
+  "BatchOrders": [
+    {
+      "OrderNumber": "LookAtMeGo5",
+      "ServiceType": "FEDEX_2_DAY",
+      "ShipTo": {
+        "ShipToFullName": "Abrahamsoso",
+        "ShipToAddress1": "90 W Northfield Rd Livingston",
+        "ShipToCity": "Livingston",
+        "ShipToState": "NJ",
+        "ShipToCountry": "US",
+        "ShipToZip5": "07039"
+      },
+      "ParcelWeight": "9.5",
+      "LineItems": [
+        {
+          "Quantity": "1",
+          "Value": "5",
+          "WeightOz": "10",
+          "Description": "Box A HB2 digeste complete",
+          "SkuId": "10"
+        }
+      ]
+    },
+    {
+      "OrderNumber": "LookAtMeGo7",
+      "ServiceType": "FEDEX_2_DAY",
+      "ShipTo": {
+        "ShipToFullName": "Abrahamsoso",
+        "ShipToAddress1": "90 W Northfield Rd Livingston",
+        "ShipToCity": "Livingston",
+        "ShipToState": "NJ",
+        "ShipToCountry": "US",
+        "ShipToZip5": "07039"
+      },
+      "ParcelWeight": "9.5",
+      "LineItems": [
+        {
+          "Quantity": "1",
+          "Value": "5",
+          "WeightOz": "10",
+          "Description": "Box A HB2 digeste complete",
+          "SkuId": "10"
+        }
+      ]
+    }
+  ]
+}

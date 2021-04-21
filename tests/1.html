@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <button type="button" onclick="myFunction1()">Try it</button>
+    <!-- <img id="testImg"> -->
+    <object style="margin-left: 100px;" id="pdfemb" width="50%" height="400" type="image/png">
+        <p>PDF cannot be displayed.</p>
+    </object>
+    <script>
+        function myFunction1() {
+            var b64='';
+            var zplText = '^XA^FX Top section with company logo, name and address.^CF0,60^FO50,50^GB100,100,100^FS^FO75,75^FR^GB100,100,100^FS^FO88,88^GB50,50,50^FS^FO220,50^FDInternational Shipping, Inc.^FS^CF0,40^FO220,100^FD1000 Shipping Lane^FS^FO220,135^FDShelbyville TN 38102^FS^FO220,170^FDUnited States (USA)^FS^FO50,250^GB700,1,3^FS^FX Second section with recipient address and permit information.^CFA,30^FO50,300^FDJohn Doe^FS^FO50,340^FD100 Main Street^FS^FO50,380^FDSpringfield TN 39021^FS^FO50,420^FDUnited States (USA)^FS^CFA,15^FO600,300^GB150,150,3^FS^FO638,340^FDPermit^FS^FO638,390^FD123456^FS^FO50,500^GB700,1,3^FS^FX Third section with barcode.^BY5,2,270^FO175,550^BC^FD1234567890^FS^FX Fourth section (the two boxes on the bottom).^FO50,900^GB700,250,3^FS^FO400,900^GB1,250,3^FS^CF0,40^FO100,960^FDShipping Ctr. X34B-1^FS^FO100,1010^FDREF1 F00B47^FS^FO100,1060^FDREF2 BL4H8^FS^CF0,190^FO485,965^FDCA^FS^XZ'
+            const Http = new XMLHttpRequest();
+            var base64data = '';
+            const url = 'http://api.labelary.com/v1/printers/8dpmm/labels/4x6/';
+            Http.open("POST", url);
+            Http.responseType = 'arraybuffer'
+            // Http.setRequestHeader("Accept", "image/png");
+            Http.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            Http.setRequestHeader("Accept", "application/pdf");
+            Http.onload = function (e) {
+                
+                b64= base64ArrayBuffer(e.currentTarget.response);
+                console.log(b64);
+                document.getElementById('pdfemb').data='data:application/pdf;base64,'+ b64;    
+            };
+            Http.send(zplText);
+            
+        };
+
+        function base64ArrayBuffer(arrayBuffer) {
+            var base64 = ''
+            var encodings = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+
+            var bytes = new Uint8Array(arrayBuffer)
+            var byteLength = bytes.byteLength
+            var byteRemainder = byteLength % 3
+            var mainLength = byteLength - byteRemainder
+
+            var a, b, c, d
+            var chunk
+
+            // Main loop deals with bytes in chunks of 3
+            for (var i = 0; i < mainLength; i = i + 3) {
+                // Combine the three bytes into a single integer
+                chunk = (bytes[i] << 16) | (bytes[i + 1] << 8) | bytes[i + 2]
+
+                // Use bitmasks to extract 6-bit segments from the triplet
+                a = (chunk & 16515072) >> 18 // 16515072 = (2^6 - 1) << 18
+                b = (chunk & 258048) >> 12 // 258048   = (2^6 - 1) << 12
+                c = (chunk & 4032) >> 6 // 4032     = (2^6 - 1) << 6
+                d = chunk & 63               // 63       = 2^6 - 1
+
+                // Convert the raw binary segments to the appropriate ASCII encoding
+                base64 += encodings[a] + encodings[b] + encodings[c] + encodings[d]
+            }
+
+            // Deal with the remaining bytes and padding
+            if (byteRemainder == 1) {
+                chunk = bytes[mainLength]
+
+                a = (chunk & 252) >> 2 // 252 = (2^6 - 1) << 2
+
+                // Set the 4 least significant bits to zero
+                b = (chunk & 3) << 4 // 3   = 2^2 - 1
+
+                base64 += encodings[a] + encodings[b] + '=='
+            } else if (byteRemainder == 2) {
+                chunk = (bytes[mainLength] << 8) | bytes[mainLength + 1]
+
+                a = (chunk & 64512) >> 10 // 64512 = (2^6 - 1) << 10
+                b = (chunk & 1008) >> 4 // 1008  = (2^6 - 1) << 4
+
+                // Set the 2 least significant bits to zero
+                c = (chunk & 15) << 2 // 15    = 2^4 - 1
+
+                base64 += encodings[a] + encodings[b] + encodings[c] + '='
+            }
+
+            return base64
+        }
+    </script>
+
+</body>
+
+</html>

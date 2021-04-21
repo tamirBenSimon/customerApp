@@ -1,0 +1,25 @@
+[{
+    "ErrorLevel": 0,
+    "Message": "ACK",
+    "CustomerId": "1510",
+    "JobId": "2343",
+    "OrdersCount": 2
+}
+,
+{
+    "BatchResponse": {
+        "ErrorLevel": 0,
+        "Message": "ACK",
+        "CustomerId": "TBS1",
+        "JobId": "2345",
+        "OrdersCount": 2
+    }
+}
+,
+{
+    "ErrorLevel": 0,
+    "Message": "ACK",
+    "CustomerId": "TBS00001",
+    "JobId": "2349",
+    "OrdersCount": 2
+}]

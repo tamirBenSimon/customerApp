@@ -1,0 +1,149 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "BatchRequest": {
+        "type": "object",
+        "properties": {
+          "BatchHeader": {
+            "type": "object",
+            "properties": {
+              "Username": {
+                "type": "string"
+              },
+              "Password": {
+                "type": "string"
+              },
+              "CustomerBatchId": {
+                "type": "string"
+              },
+              "CreationTimeStamp": {
+                "type": "string"
+              },
+              "OrdersQuantity": {
+                "type": "integer"
+              },
+              "ShipTime": {
+                "type": "string"
+              },
+              "ShipDate": {
+                "type": "string"
+              },
+              "Currency": {
+                "type": "string"
+              },
+              "Payments": {
+                "type": "object",
+                "properties": {
+                  "FreightPaymentType": {
+                    "type": "string"
+                  },
+                  "DutiesPaymentType": {
+                    "type": "string"
+                  }
+                }
+              },
+              "Labels": {
+                "type": "array",
+                "items": 
+                  {
+                    "type": "object",
+                    "properties": {
+                      "LabelFormat": {
+                        "type": "string"
+                      }
+                    }
+                  }
+              }
+            }
+          }
+        }
+      },
+      "BatchOrders": {
+        "type": "array",
+        "items": 
+          {
+            "type": "object",
+            "properties": {
+              "OrderNumber": {
+                "type": "string"
+              },
+              "ServiceType": {
+                "type": "string"
+              },
+              "PackageType": {
+                "type": "string"
+              },
+              "Urgent": {
+                "type": "boolean"
+              },
+              "Purchase_Platform": {
+                "type": "string"
+              },
+              "ShipTo": {
+                "type": "object",
+                "properties": {
+                  "ShipToFullName": {
+                    "type": "string"
+                  },
+                  "ShipToAddress1": {
+                    "type": "string"
+                  },
+                  "ShipToAddress2": {
+                    "type": "string"
+                  },
+                  "ShipToCity": {
+                    "type": "string"
+                  },
+                  "ShipToState": {
+                    "type": "string"
+                  },
+                  "ShipToCountry": {
+                    "type": "string"
+                  },
+                  "ShipToZip5": {
+                    "type": "string"
+                  }
+                }
+              },
+              "WeightMeasure": {
+                "type": "string"
+              },
+              "OrderShipDate": {
+                "type": "string"
+              },
+              "Amazon_Ship_Date": {
+                "type": "string"
+              },
+              "ParcelWeight": {
+                "type": "string"
+              },
+              "LineItems": {
+                "type": "array",
+                "items": 
+                  {
+                    "type": "object",
+                    "properties": {
+                      "Quantity": {
+                        "type": "string"
+                      },
+                      "Value": {
+                        "type": "string"
+                      },
+                      "WeightOz": {
+                        "type": "string"
+                      },
+                      "Description": {
+                        "type": "string"
+                      },
+                      "SkuId": {
+                        "type": "string"
+                      }
+                    }
+                  }
+              }
+            }
+          }
+      }
+    }
+  }

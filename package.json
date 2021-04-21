@@ -1,0 +1,48 @@
+{
+  "name": "dashbord1",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "deploy": "node scripts/gh-pages-deploy.js",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "axios": "^0.21.1",
+    "bootstrap-vue": "^2.21.2",
+    "browserify-fs": "^1.0.0",
+    "core-js": "^3.6.5",
+    "element-ui": "^2.15.1",
+    "exceljs": "^4.2.1",
+    "jquery": "^3.6.0",
+    "papaparse": "^5.3.0",
+    "read-excel-file": "^5.0.0",
+    "run": "^1.4.0",
+    "sass-loader": "^11.0.1",
+    "serve": "^11.3.2",
+    "vue": "^2.6.11",
+    "vue-axios": "^3.2.4",
+    "vue-papa-parse": "^2.0.0",
+    "vue-router": "^3.5.1",
+    "vue-sidebar-menu": "^4.7.4",
+    "vuex": "^3.6.2",
+    "xlsx": "^0.16.9",
+    "xlsx-style": "^0.8.13"
+  },
+  "devDependencies": {
+    "execa": "latest",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
